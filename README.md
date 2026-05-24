@@ -33,7 +33,7 @@ pick a memory address, read or write one byte at a time, see the raw bytes. For 
 drive with many bytes of configuration spread across multiple memory regions, that workflow
 is impractical and error-prone in the field.
 
-UHT Elektronik needed an app their engineers could actually use on a job site. This project
+UHT Elektronik (Developer: Mertali Tercan) built an app that engineers could actually use on a job site. This project
 takes the open-source ST25 codebase as a starting point and turns it into a purpose-built
 configuration tool for their drives.
 
