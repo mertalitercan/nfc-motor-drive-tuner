@@ -72,7 +72,7 @@ side-by-side, will be added here.
 
 ## Author
 
-**Mertali Tercan** — [mertalitercan.com](https://mertalitercan.com) · [LinkedIn](https://www.linkedin.com/in/mertalitercan) · [GitHub](https://github.com/mertalitercan)
+**Mertali Tercan** — [mertalitercan.com](https://mertalitercan.com) · [LinkedIn](https://www.linkedin.com/in/mertali-t) · [GitHub](https://github.com/mertalitercan)
 
 Delivered to **UHT Elektronik** for a government-funded industrial automation project.
 
