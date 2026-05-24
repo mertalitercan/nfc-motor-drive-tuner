@@ -1,12 +1,84 @@
-# nfc-motor-drive-tuner
-This application was built on the ST25-series NFC chips API (open-source), extending capabilities from single-byte to multi-byte data transfers for electric motor integration.
-It introduced synchronized read/write operations that present processed data directly during reading, eliminating the need for manual memory address selection and raw data handling.
-The app has also been optimized for 24% lower memory usage and redesigned with improved UI/UX for faster and more user-friendly operation.
+# NFC Motor Drive Tuner
 
-Source code is not included due to corporate confidentiality agreements.
+An Android application that configures electric motor drive parameters wirelessly over NFC.
+Built on STMicroelectronics' open-source ST25 NFC reference app and extended for production
+use by **UHT Elektronik** as part of a **$105K government-funded project**.
 
-- There will be a demo video comparing the original app and the more advanced version developed for UHT Elektronik's use.
-- I will also be adding the engineering decisions and the detailed README.md soon.
+> **Note:** The source code is not in this repository due to corporate confidentiality.
+> This README documents the work and the improvements made over the reference app.
 
-**Developed by Mertali Tercan**  
-**© All rights reserved by UHT Elektronik & STMicroelectronics (source provider)**
+---
+
+## What it does
+
+Industrial motor drives expose dozens of configurable parameters (speed limits, torque curves,
+fault thresholds, protection settings). Configuring them traditionally means a wired interface
+and a technician operating from a PC.
+
+This app lets a field technician tap their phone against the ST25 NFC tag on the drive's
+controller and:
+
+- **Read** the drive's current parameter set, decoded into human-readable values.
+- **Modify** parameters through a guided UI.
+- **Write** the new configuration back in a single synchronized session.
+
+No cables. No memory-map lookups. No raw hex.
+
+---
+
+## Why it exists
+
+The stock STMicroelectronics ST25 reference Android app is a general-purpose NFC tag tool:
+pick a memory address, read or write one byte at a time, see the raw bytes. For a motor
+drive with many bytes of configuration spread across multiple memory regions, that workflow
+is impractical and error-prone in the field.
+
+UHT Elektronik needed an app their engineers could actually use on a job site. This project
+takes the open-source ST25 codebase as a starting point and turns it into a purpose-built
+configuration tool for their drives.
+
+---
+
+## Improvements over the reference app
+
+| Area | ST25 reference app | This app |
+| --- | --- | --- |
+| Transfer size | Single-byte reads/writes | **Multi-byte transfers** |
+| Memory addressing | Manual address entry by the operator | **Automated data mapping** |
+| Read/write flow | Separate operations on raw bytes | **Synchronized session** with processed values shown during read |
+| Data presentation | Raw bytes | Decoded values |
+| Configuration accuracy | Operator-dependent | **100% accuracy** (verified against drive spec) |
+| Memory footprint | Baseline | **~24% lower** RAM usage |
+| UI/UX | Developer-facing | Redesigned for field use |
+
+---
+
+## Tech stack
+
+- **Language:** Java
+- **Platform:** Android (Android SDK)
+- **NFC:** STMicroelectronics ST25 SDK
+- **UI:** Android XML layouts
+- **Build:** Gradle
+
+---
+
+## Demo
+
+A demo video comparing the stock ST25 app and this version, configuring the same drive
+side-by-side, will be added here.
+
+---
+
+## Author
+
+**Mertali Tercan** — [mertalitercan.com](https://mertalitercan.com) · [LinkedIn](https://www.linkedin.com/in/mertalitercan) · [GitHub](https://github.com/mertalitercan)
+
+Delivered to **UHT Elektronik** for a government-funded industrial automation project.
+
+---
+
+## License & attribution
+
+© All rights reserved by **UHT Elektronik** and **STMicroelectronics** (source provider).
+This repository contains documentation only; no source code is distributed.
